@@ -1,1 +1,58 @@
 # gphone
+
+`gphone` is a wrapper around the following:
+* https://www.npmjs.com/package/google-libphonenumber
+* https://github.com/jackocnr/intl-tel-input
+
+It exposes a node.js method to format phone numbers. It also includes a jQuery plugin wrapper for the intl-tel-input plugin.
+
+# Introduction
+
+Regarding the storage and transport of phone numbers:
+* We want to store all phone numbers in E164 format in the database.
+* Convert to E164 format as early as possible.
+* Convert away from E164 as late as possible.
+* The phone number and phone extension are stored in separate columns.
+* Phone numbers should be displayed to users in international format.
+
+## jQuery Plugin
+
+Regarding the display of phone numbers to users:
+* Display in international formation `+1 512-451-0100`
+* Use `$.fn.phone()` phone number picker which helps select country code and phone extension.
+```javascript
+// We store phone number in E164, but just incase convert again to E164
+// because the phone plugin will error if phone number is not in E164.
+telphone.phone({
+  number: '{{phoneFormat user.phone 'E164'}}',
+  extension: '{{user.phone_ext}}'
+});
+```
+
+## View Helpers
+
+There are three view helpers:
+* **format** - which formats phone numbers in either E164 or INTERNATIONAL format.
+* **viewer** - which converts from E164 to INTERNATIONAL format.
+* **dialer** - which converts from E164 to INTERNATIONAL format and wraps in a link.
+
+```handlebars
+{{format phone 'E164'}} //+15124510100
+{{format phone 'INTERNATIONAL'}} //+1 512-451-0100
+```
+
+You can also use the helpers in Node.js code:
+```js
+var Phone = require('@esscorp/gphone');
+var e164 = Phone.format(data.phone, 'E164');
+var intl = Phone.format(data.phone, 'INTERNATIONAL');
+```
+
+Use dialer for users who need to dial numbers.
+```handlebars
+{{dialer phone extension}}
+```
+Use viewer for users who don't need to dial their own number
+```handlebars
+{{viewer phone extension}}
+```
