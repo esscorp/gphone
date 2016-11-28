@@ -23,8 +23,5 @@
   "bugs": {
     "url": "https://github.com/estrat/gphone/issues"
   },
-  "homepage": "https://github.com/estrat/gphone#readme",
-  "publishConfig": {
-    "scope": "esscorp"
-  }
+  "homepage": "https://github.com/estrat/gphone#readme"
 }
