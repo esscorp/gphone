@@ -64,4 +64,45 @@
 
 		copyData();
 	};
+
+	$.fn.provePhone = function(options) {
+
+		var input = $(this);
+		var phone = input.parent().find('input[type="tel"]');
+		var enabled = $('body').booleanator(options.enabled);
+		var code = phone.intlTelInput('getValidationError');
+		var valid = phone.intlTelInput('isValidNumber');
+		var errors = {
+			0: 'Valid phone number',
+			1: 'Invalid country for phone number',
+			2: 'Phone number is too short',
+			3: 'Phone number has incorrect number of digits',
+			4: 'Not a valid phone number'
+		};
+
+		var validated = (enabled && valid)? 'success' : 'danger';
+		var validation = (enabled)? validated : 'reset';
+		var message = (code === 0 && !valid)? 'Invalid phone number' : errors[code];
+
+		if (options.debug) {
+			console.groupCollapsed('Validator.provePhone()', options.field);
+				console.log('options', options);
+				console.log('input', input);
+				console.log('enabled', enabled);
+				console.log('valid', valid);
+				console.log('code', code);
+				console.log('validation', validation);
+				console.log('message', message);
+			console.groupEnd();
+		}
+
+		return {
+			field: options.field,
+			validator: options.validator,
+			status: 'validated',
+			validation: validation,
+			message: message
+		};
+	};
+
 })(jQuery)

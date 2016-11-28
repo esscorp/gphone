@@ -1,11 +1,9 @@
 {
   "name": "@esscorp/gphone",
-  "version": "0.0.5",
-  "description": "Node.js wrapper for google-libphonenumber. Exposes methods to format phone numbers and two view helpers to display phone numbers.",
+  "version": "0.0.6",
+  "description": "A collection of phone number view helpers and plugins.",
   "main": "index.js",
   "dependencies": {
-    "google-libphonenumber": "^2.0.6",
-    "handlebars": "^4.0.6"
   },
   "devDependencies": {},
   "scripts": {

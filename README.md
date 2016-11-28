@@ -1,10 +1,19 @@
-# gphone
+# wphone
 
 `gphone` is a wrapper around the following:
-* https://www.npmjs.com/package/google-libphonenumber
-* https://github.com/jackocnr/intl-tel-input
+* https://www.npmjs.com/package/google-libphonenumber - phone number validator and formatter.
+* https://github.com/jackocnr/intl-tel-input - jQuery phone number input plugin.
+* https://github.com/provejs/jquery-prove - custom phone number validator for jQuery provejs.
 
-It exposes a node.js method to format phone numbers. It also includes a jQuery plugin wrapper for the intl-tel-input plugin.
+It exposes the following:
+* 3 view helpers to format and display phone numbers.
+	* **format** - which formats phone numbers in either E164 or INTERNATIONAL format.
+	* **viewer** - which converts from E164 to INTERNATIONAL format.
+	* **dialer** - which converts from E164 to INTERNATIONAL format and wraps in a link.
+* 1 jQuery plugin `$.fn.phone()` to simplify the inputting of phone numbers.
+* 1 jQuery plugin `$.fn.provePhone` to validate phone numbers using the jQuery provejs.
+
+`gphone` does not include `google-libphonenumber`, `intl-tel-input`, or `jquery-prove`. It is expected that you will include these dependencies in your build process.
 
 # Introduction
 
@@ -16,11 +25,6 @@ Regarding the storage and transport of phone numbers:
 * Phone numbers should be displayed to users in international format.
 
 ## View Helpers
-
-There are three view helpers:
-* **format** - which formats phone numbers in either E164 or INTERNATIONAL format.
-* **viewer** - which converts from E164 to INTERNATIONAL format.
-* **dialer** - which converts from E164 to INTERNATIONAL format and wraps in a link.
 
 Use format to format phone numbers.
 ```handlebars
@@ -65,3 +69,4 @@ telphone.phone({
 
 ## todo
 Code `telphone.phone('destroy')`
+Remove Handlebars dependencies.
