@@ -15,11 +15,45 @@ Regarding the storage and transport of phone numbers:
 * The phone number and phone extension are stored in separate columns.
 * Phone numbers should be displayed to users in international format.
 
+## View Helpers
+
+There are three view helpers:
+* **format** - which formats phone numbers in either E164 or INTERNATIONAL format.
+* **viewer** - which converts from E164 to INTERNATIONAL format.
+* **dialer** - which converts from E164 to INTERNATIONAL format and wraps in a link.
+
+Use format to format phone numbers.
+```handlebars
+{{format phone 'E164'}} //+15124510100
+{{format phone 'INTERNATIONAL'}} //+1 512-451-0100
+```
+Use dialer for users who need to dial numbers.
+```handlebars
+{{dialer phone extension}}
+```
+Use viewer for users who don't need to dial their own number
+```handlebars
+{{viewer phone extension}}
+```
+
+Note: is expected that when integrating these view helpers with Handlebars you will namespace them as:
+* {{phoneformat ...}}
+* {{phoneViewer ...}}
+* {{phoneDialer ...}}
+
+You can also use the helpers in Node.js code:
+```js
+var Phone = require('@esscorp/gphone');
+var e164 = Phone.format(data.phone, 'E164');
+var intl = Phone.format(data.phone, 'INTERNATIONAL');
+```
+
 ## jQuery Plugin
 
-Regarding the display of phone numbers to users:
+Regarding the input of phone numbers by users:
 * Display in international formation `+1 512-451-0100`
 * Use `$.fn.phone()` phone number picker which helps select country code and phone extension.
+
 ```javascript
 // We store phone number in E164, but just incase convert again to E164
 // because the phone plugin will error if phone number is not in E164.
@@ -29,30 +63,5 @@ telphone.phone({
 });
 ```
 
-## View Helpers
-
-There are three view helpers:
-* **format** - which formats phone numbers in either E164 or INTERNATIONAL format.
-* **viewer** - which converts from E164 to INTERNATIONAL format.
-* **dialer** - which converts from E164 to INTERNATIONAL format and wraps in a link.
-
-```handlebars
-{{format phone 'E164'}} //+15124510100
-{{format phone 'INTERNATIONAL'}} //+1 512-451-0100
-```
-
-You can also use the helpers in Node.js code:
-```js
-var Phone = require('@esscorp/gphone');
-var e164 = Phone.format(data.phone, 'E164');
-var intl = Phone.format(data.phone, 'INTERNATIONAL');
-```
-
-Use dialer for users who need to dial numbers.
-```handlebars
-{{dialer phone extension}}
-```
-Use viewer for users who don't need to dial their own number
-```handlebars
-{{viewer phone extension}}
-```
+## todo
+Code `telphone.phone('destroy')`
