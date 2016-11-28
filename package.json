@@ -1,8 +1,13 @@
 {
-  "name": "gphone",
+  "name": "@esscorp/gphone",
   "version": "0.0.1",
-  "description": "Wrapper module",
+  "description": "Node.js wrapper for google-libphonenumber. Exposes methods to format phone numbers and two view helpers to display phone numbers.",
   "main": "index.js",
+  "dependencies": {
+    "google-libphonenumber": "^2.0.6",
+    "handlebars": "^4.0.6"
+  },
+  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -10,14 +15,13 @@
     "type": "git",
     "url": "git+https://github.com/estrat/gphone.git"
   },
-  "author": "",
+  "keywords": [
+    "google-libphonenumber"
+  ],
+  "author": "Dan Hollenbeck",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/estrat/gphone/issues"
   },
-  "homepage": "https://github.com/estrat/gphone#readme",
-  "dependencies": {
-    "google-libphonenumber": "^2.0.6",
-    "handlebars": "^4.0.6"
-  }
+  "homepage": "https://github.com/estrat/gphone#readme"
 }
