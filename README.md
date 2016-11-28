@@ -68,5 +68,7 @@ telphone.phone({
 ```
 
 ## todo
-Code `telphone.phone('destroy')`
-Remove Handlebars dependencies.
+
+* Code `telphone.phone('destroy')`
+* Remove Handlebars dependencies.
+* Fix $.fn.phone() to not throw an error if not in #164 format.
