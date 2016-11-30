@@ -1,12 +1,11 @@
 'use strict';
 
-//var ns = 'Phone.';
-
 var Assert = require('assert');
-var gphone = require('google-libphonenumber');
+var Gphone = require('google-libphonenumber');
 var Handlebars = require('handlebars');
-var PNF = gphone.PhoneNumberFormat;
-var PhoneUtil = gphone.PhoneNumberUtil.getInstance();
+var PNF = Gphone.PhoneNumberFormat;
+var PhoneUtil = Gphone.PhoneNumberUtil.getInstance();
+
 
 function safe(html) {
 	return new Handlebars.SafeString(html);
