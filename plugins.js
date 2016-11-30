@@ -1,4 +1,7 @@
+/* eslint-env browser */
 (function($) {
+	'use strict';
+
 	$.fn.phone = function(options) {
 
 		//set defaults
@@ -38,7 +41,7 @@
 		// style
 		group.find('.intl-tel-input').width('100%');
 
-		function copyData(e) {
+		function copyData(/*e*/) {
 			var number = input.intlTelInput('getNumber');
 			var extension = input.intlTelInput('getExtension');
 			//console.log('copyData()', number, extension);
@@ -51,7 +54,7 @@
 			if (hidden2.validate) hidden2.validate();
 		}
 
-		input.on('countrychange', function(e, data) {
+		input.on('countrychange', function(/*e, data*/) {
 			//console.log('countrychange', data);
 			copyData();
 			validate();
@@ -85,7 +88,7 @@
 		var message = (code === 0 && !valid)? 'Invalid phone number' : errors[code];
 
 		if (options.debug) {
-			console.groupCollapsed('Validator.provePhone()', options.field);
+			console.groupCollapsed('Validator.provePhone()', options.field); /* eslint-disable indent */
 				console.log('options', options);
 				console.log('input', input);
 				console.log('enabled', enabled);
@@ -93,7 +96,7 @@
 				console.log('code', code);
 				console.log('validation', validation);
 				console.log('message', message);
-			console.groupEnd();
+			console.groupEnd(); /* eslint-enable indent */
 		}
 
 		return {
@@ -105,4 +108,4 @@
 		};
 	};
 
-})(jQuery)
+})(jQuery);
