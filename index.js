@@ -63,11 +63,10 @@ exports.format = function(phone, fmt) {
 	if (!phone) return null;
 
 	// parse obj => format str
-	//todo: what happens if both parses fail?
-	var obj1 = parse(phone);
-	var obj2 = parse(phone, 'US');
-	var obj = obj1 || obj2;
-	//var countryCode = obj.getCountryCode();
+	// todo: what happens if both parses fail?
+	var obj = parse(phone);
+	if (!obj) obj = parse(phone, 'US');
+	// var countryCode = obj.getCountryCode();
 	var str = format(obj, fmtCode);
 
 	// console.log('* country:', countryCode);
@@ -78,7 +77,7 @@ exports.format = function(phone, fmt) {
 	return (fmt === 'E164')? str : str || phone;
 };
 
-//http://stackoverflow.com/a/1467262
+// http://stackoverflow.com/a/1467262
 exports.dialer = function(phone, ext) {
 
 	if (!phone) return safe('');
