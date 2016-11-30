@@ -9,7 +9,7 @@ module.exports = function(grunt) {
 		},
 		backend: {
 			options: {
-				config: 'eslint-config-ess/configs/backend.js'
+				configFile: 'eslint-config-ess/configs/backend.js'
 			},
 			src: [
 				'gruntfile.js',
@@ -19,7 +19,7 @@ module.exports = function(grunt) {
 		},
 		frontend: {
 			options: {
-				config: 'eslint-config-ess/configs/frontend.js'
+				configFile: 'eslint-config-ess/configs/frontend.js'
 			},
 			src: [
 				'plugins.js'
