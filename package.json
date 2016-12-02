@@ -20,7 +20,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/estrat/gphone.git"
+    "url": "git+https://github.com/esscorp/gphone.git"
   },
   "keywords": [
     "google-libphonenumber"
@@ -28,7 +28,7 @@
   "author": "Dan Hollenbeck",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/estrat/gphone/issues"
+    "url": "https://github.com/esscorp/gphone/issues"
   },
-  "homepage": "https://github.com/estrat/gphone#readme"
+  "homepage": "https://github.com/esscorp/gphone#readme"
 }
