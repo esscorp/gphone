@@ -1,6 +1,6 @@
 {
   "name": "@esscorp/gphone",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "A collection of phone number view helpers and plugins.",
   "main": "index.js",
   "dependencies": {
