@@ -11,6 +11,7 @@ module.exports = function(grunt) {
 			options: {
 				config: 'node_modules/@esscorp/eslint/configs/backend.js'
 			},
+			nonull: true,
 			src: [
 				'gruntfile.js',
 				'index.js',
@@ -19,8 +20,9 @@ module.exports = function(grunt) {
 		},
 		frontend: {
 			options: {
-				configFile: 'eslint-config-ess/configs/frontend.js'
+				configFile: 'node_modules/@esscorp/eslint/configs/frontend.js'
 			},
+			nonull: true,
 			src: [
 				'plugins.js'
 			]
