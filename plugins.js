@@ -28,7 +28,6 @@
 
 		// tweak existing input
 		input.prop('name', '');
-		input.prop('id', '');
 		input.val(combine);
 
 		//console.log('phone()', options);
