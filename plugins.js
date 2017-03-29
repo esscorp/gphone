@@ -40,7 +40,7 @@
 		// style
 		group.find('.intl-tel-input').width('100%');
 
-		function copyData(/*e*/) {
+		function copyData() {
 			var number = input.intlTelInput('getNumber');
 			var extension = input.intlTelInput('getExtension');
 			//console.log('copyData()', number, extension);
@@ -58,8 +58,9 @@
 			copyData();
 			validate();
 		});
-		input.on('keyup change', function() {
-			//console.log('keyup change');
+		// important! the events listed here override the events set in provejs
+		input.on('input change keyup click blur', function() {
+			//console.log('input change keyup click blur');
 			copyData();
 			validate();
 		});
