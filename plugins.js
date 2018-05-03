@@ -47,6 +47,7 @@
 			hidden1.val(number);
 			hidden2.val(extension);
 		}
+
 		function validate() {
 			//console.log('validate()');
 			if (hidden1.validate) hidden1.validate();
@@ -108,4 +109,4 @@
 		};
 	};
 
-})(jQuery);
+}(jQuery));
