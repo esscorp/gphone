@@ -1,11 +1,11 @@
 {
   "name": "@esscorp/gphone",
-  "version": "0.0.14",
+  "version": "0.0.15",
   "description": "A collection of phone number view helpers and plugins.",
   "main": "index.js",
   "dependencies": {
     "google-libphonenumber": "^2.0.6",
-    "handlebars": "^4.1.2"
+    "handlebars": "^4.5.3"
   },
   "devDependencies": {
     "@esscorp/eslint": "^2.7.0",
